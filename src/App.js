@@ -28,32 +28,32 @@ function Homepage() {
 function GameScreen() {
   const deck = [
     {
-      questionTitle: "this is a test this is a test ok",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: " O que é JSX?",
+      questionAnswer: "Uma extensão de linguagem do JavaScript",
     },
     {
-      questionTitle: "texto da pergunta 2 2 2 2 2",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: "O React é __",
+      questionAnswer: "Uma biblioteca JavaScript para construção de interfaces",
     },
     {
-      questionTitle: "texto da pergunta 2222222222222222222",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: "Componentes devem iniciar com __ ",
+      questionAnswer: "Letra maiúscula",
     },
     {
-      questionTitle: "texto da pergunta",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: "Podemos colocar __ dentro do JSX",
+      questionAnswer: "Expressões",
     },
     {
-      questionTitle: "texto da pergunta",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: "Usamos o npm para __ ",
+      questionAnswer: "Gerenciar os pacotes necessários e suas dependências",
     },
     {
-      questionTitle: "texto da pergunta",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: " O ReactDOM nos ajuda __",
+      questionAnswer: "Interagindo com a DOM para colocar componentes React na mesma",
     },
     {
-      questionTitle: "texto da pergunta texto da pergunta testaaa",
-      questionAnswer: "resposta da pergunta",
+      questionTitle: "Usamos props para __ ",
+      questionAnswer: "Passar diferentes informações para componentes",
     },
   ];
 
