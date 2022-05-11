@@ -4,20 +4,18 @@
   box-sizing: border-box;
 }
 
-body,
-html {
-  height: 100%;
-}
-
 body {
   background-color: #fb6b6b;
   font-family: "Recursive", sans-serif;
+  color: #333333;
 }
 
 h1,
 h2 {
   font-family: "Righteous", cursive;
 }
+
+/* HOMEPAGE */
 
 .homepage {
   display: flex;
@@ -62,5 +60,148 @@ h2 {
 }
 
 .homepage-content button:active {
-    background-color: #ffffff;
+  background-color: #f6f6f6;
+}
+
+/* GAME */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 42px;
+  margin-bottom: 52px;
+}
+
+header img {
+  width: 52px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+header h2 {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 45px;
+  color: #ffffff;
+}
+
+.question-container {
+  padding: 0 10%;
+  margin-bottom: 70px;
+}
+
+.question-container ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.question-container li {
+  display: flex;
+  padding: 0 15px;
+  margin-bottom: 25px;
+  width: 100%;
+  height: 65px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+
+.closed-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closed-card span {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.question-container .question-opened {
+  height: 131px;
+  background-color: #ffffd4;
+  transition: all 250ms ease;
+}
+
+.opened-card {
+  padding-top: 18px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+.opened-card span {
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.front-card {
+  position: relative;
+  height: 100%;
+}
+
+.front-card .icon-front-card {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 30px;
+}
+
+.back-card {
+  position: relative;
+  height: 100%;
+}
+
+.back-card .back-card-buttons {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-card-buttons button {
+  width: 85px;
+  height: 37px;
+  font-family: "Recursive", sans-serif;
+  font-size: 12px;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+}
+
+.wrong-answer-button {
+  background-color: #ff3030;
+}
+
+.partially-correct-button {
+  background-color: #ff922e;
+}
+
+.zap-button {
+  background-color: #2fbe34;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.icons {
+  font-size: 22px;
+}
+
+/* AUXILIAR CLASSES */
+.hidden {
+  display: none;
 }
