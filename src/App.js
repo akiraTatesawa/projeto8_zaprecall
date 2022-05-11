@@ -1,4 +1,10 @@
 import { useState } from "react";
+import { IconContext } from "react-icons";
+import {
+  BsFillXCircleFill,
+  BsQuestionCircleFill,
+  BsCheckCircleFill,
+} from "react-icons/bs";
 import QuestionCard from "./QuestionCard";
 
 function Homepage() {
@@ -22,7 +28,7 @@ function Homepage() {
 function GameScreen() {
   const deck = [
     {
-      questionTitle: "ugabuga uga buga ahsud ajidja iajsdija",
+      questionTitle: "this is a test this is a test ok",
       questionAnswer: "resposta da pergunta",
     },
     {
@@ -74,6 +80,23 @@ function GameScreen() {
       </section>
       <footer>
         <span>{`${finishedQuestions}/${totalQuestions} CONCLUÍDOS`}</span>
+        {/* <div>
+          <IconContext.Provider
+            value={{ color: "#2fbe34", className: "answers-icons icons " }}
+          >
+            <BsCheckCircleFill />
+          </IconContext.Provider>
+          <IconContext.Provider
+            value={{ color: "#ff3030", className: "answers-icons icons " }}
+          >
+            <BsFillXCircleFill />
+          </IconContext.Provider>
+          <IconContext.Provider
+            value={{ color: "#ff922e", className: "answers-icons icons " }}
+          >
+            <BsQuestionCircleFill />
+          </IconContext.Provider>
+        </div> */}
       </footer>
     </>
   );

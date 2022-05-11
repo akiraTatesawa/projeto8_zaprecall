@@ -9,10 +9,43 @@ export default function QuestionCard({
   questionAnswer,
 }) {
   const [isCardOpened, setIsCardOpened] = useState(false);
+  const [isFrontCard, setIsFrontCard] = useState(true);
 
   function openCard() {
     setIsCardOpened(true);
   }
+
+  function flipFrontCard() {
+    setIsFrontCard(false);
+  }
+
+  const frontCard = (
+    <div className="front-card">
+      <span>{questionTitle}</span>
+      <IconContext.Provider
+        value={{ color: "#333333", className: "icon-front-card" }}
+      >
+        <TiArrowLoop onClick={flipFrontCard} />
+      </IconContext.Provider>
+    </div>
+  );
+
+  const backCard = (
+    <div className="back-card">
+      <span>{questionAnswer}</span>
+      <div className="back-card-buttons">
+        <button className="wrong-answer-button">
+          Não <br />
+          lembrei
+        </button>
+        <button className="partially-correct-button">
+          Quase não
+          <br /> lembrei
+        </button>
+        <button className="zap-button">Zap!</button>
+      </div>
+    </div>
+  );
 
   return (
     <li className={isCardOpened ? "question-opened" : ""} onClick={openCard}>
@@ -24,23 +57,7 @@ export default function QuestionCard({
       </div>
 
       <div className={`opened-card ${isCardOpened ? "" : "hidden"}`}>
-        <div className="front-card">
-          <span>{questionTitle}</span>
-          <IconContext.Provider
-            value={{ color: "#333333", className: "icon-front-card" }}
-          >
-            <TiArrowLoop />
-          </IconContext.Provider>
-        </div>
-
-        <div className="back-card">
-          <span>{questionAnswer}</span>
-          <div className="back-card-buttons">
-          <button className="wrong-answer-button">Não <br/>lembrei</button>
-          <button className="partially-correct-button">Quase não<br/> lembrei</button>
-          <button className="zap-button">Zap!</button>
-          </div>
-        </div>
+        {isFrontCard ? frontCard : backCard}
       </div>
     </li>
   );

@@ -190,11 +190,17 @@ footer {
   position: fixed;
   bottom: 0;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 70px;
   width: 100%;
   background-color: #ffffff;
+}
+
+.answers-icons {
+  margin-top: 5px;
+  margin-right: 5px;
 }
 
 .icons {
