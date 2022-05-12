@@ -5,25 +5,8 @@ import {
   BsQuestionCircleFill,
   BsCheckCircleFill,
 } from "react-icons/bs";
+import Homepage from "./Homepage";
 import QuestionCard from "./QuestionCard";
-
-function Homepage() {
-  const [isHomepageHidden, setIsHomepageHidden] = useState(false);
-
-  function hideHomepage() {
-    setIsHomepageHidden(true);
-  }
-
-  return (
-    <section className={`homepage ${isHomepageHidden ? "hidden" : ""}`}>
-      <div className="homepage-content">
-        <img src="./assets/img/logo1.png" alt="logo" />
-        <h1>ZapRecall</h1>
-        <button onClick={hideHomepage}>Iniciar Recall!</button>
-      </div>
-    </section>
-  );
-}
 
 function GameScreen() {
   const deck = [
@@ -49,7 +32,8 @@ function GameScreen() {
     },
     {
       questionTitle: " O ReactDOM nos ajuda __",
-      questionAnswer: "Interagindo com a DOM para colocar componentes React na mesma",
+      questionAnswer:
+        "Interagindo com a DOM para colocar componentes React na mesma",
     },
     {
       questionTitle: "Usamos props para __ ",
@@ -103,10 +87,19 @@ function GameScreen() {
 }
 
 export default function App() {
+  const [screen, setScreen] = useState("Homepage");
+
+  function changeHomepageToGameScreen() {
+    setScreen("GameScreen");
+  }
+
   return (
     <>
-      {/* <Homepage /> */}
-      <GameScreen />
+      {screen === "Homepage" ? (
+        <Homepage changeScreen={changeHomepageToGameScreen} />
+      ) : (
+        <GameScreen />
+      )}
     </>
   );
 }
