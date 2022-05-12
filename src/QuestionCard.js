@@ -6,8 +6,7 @@ import IconAnswer from "./IconAnswer";
 
 export default function QuestionCard({
   questionNumber,
-  questionTitle,
-  questionAnswer,
+  deckItem,
   answersArray,
   setAnswersArray,
   setAnsweredQuestions,
@@ -67,7 +66,7 @@ export default function QuestionCard({
 
   const frontCard = (
     <div className="front-card">
-      <span>{questionTitle}</span>
+      <span>{deckItem.questionTitle}</span>
       <IconContext.Provider
         value={{ color: "#333333", className: "icon-front-card" }}
       >
@@ -78,7 +77,7 @@ export default function QuestionCard({
 
   const backCard = (
     <div className="back-card">
-      <span>{questionAnswer}</span>
+      <span>{deckItem.questionAnswer}</span>
       <div className="back-card-buttons">
         <button
           className="wrong-answer-button"

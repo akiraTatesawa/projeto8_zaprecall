@@ -2,6 +2,7 @@ import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
 import IconAnswer from "./IconAnswer";
+import ResultsMessage from "./ResultsMessage";
 
 export default function GameScreen({ deck }) {
   const totalQuestions = deck.length;
@@ -18,28 +19,27 @@ export default function GameScreen({ deck }) {
         <img src="./assets/img/logo1.png" alt="logo" />
         <h2>ZapRecall</h2>
       </header>
+
       <section className="question-container">
         <ul>
-          {deck.map((post, index) => (
+          {deck.map((deckItem, index) => (
             <QuestionCard
               key={index}
               questionNumber={index + 1}
-              questionTitle={post.questionTitle}
-              questionAnswer={post.questionAnswer}
+              deckItem={deckItem}
               answersArray={answersArray}
               setAnswersArray={setAnswersArray}
               setAnsweredQuestions={setAnsweredQuestions}
-              isEverythingCorrect={isEverythingCorrect}
               setIsEverythingCorrect={setIsEverythingCorrect}
             />
           ))}
         </ul>
       </section>
-      <Footer
-        answeredQuestions={answeredQuestions}
-        totalQuestions={totalQuestions}
-        isEverythingCorrect={isEverythingCorrect}
-      >
+
+      <Footer>
+        {answeredQuestions === totalQuestions ? (
+          <ResultsMessage isEverythingCorrect={isEverythingCorrect} />
+        ) : undefined}
         <span>{`${answeredQuestions}/${totalQuestions} CONCLUÍDOS`}</span>
         <div>
           {answersArray.map((item, index) => (
