@@ -2,6 +2,11 @@ import { useState } from "react";
 import { IconContext } from "react-icons";
 import { GrPlay } from "react-icons/gr";
 import { TiArrowLoop } from "react-icons/ti";
+import {
+  BsFillXCircleFill,
+  BsQuestionCircleFill,
+  BsCheckCircleFill,
+} from "react-icons/bs";
 
 export default function QuestionCard({
   questionNumber,
@@ -9,14 +14,18 @@ export default function QuestionCard({
   questionAnswer,
 }) {
   const [isCardOpened, setIsCardOpened] = useState(false);
-  const [isFrontCard, setIsFrontCard] = useState(true);
+  const [cardFace, setCardFace] = useState("Front");
 
   function openCard() {
     setIsCardOpened(true);
   }
 
+  function closeCard(answer) {
+    setIsCardOpened(false);
+  }
+
   function flipFrontCard() {
-    setIsFrontCard(false);
+    setCardFace("Back");
   }
 
   const frontCard = (
@@ -34,31 +43,48 @@ export default function QuestionCard({
     <div className="back-card">
       <span>{questionAnswer}</span>
       <div className="back-card-buttons">
-        <button className="wrong-answer-button">
+        <button
+          className="wrong-answer-button"
+          onClick={() => closeCard("wrong")}
+        >
           Não <br />
           lembrei
         </button>
-        <button className="partially-correct-button">
+        <button
+          className="partially-correct-button"
+          onClick={() => closeCard("partially correct")}
+        >
           Quase não
           <br /> lembrei
         </button>
-        <button className="zap-button">Zap!</button>
+        <button className="zap-button"
+         onClick={() => closeCard("correct")}>
+          Zap!
+        </button>
       </div>
     </div>
   );
 
-  return (
-    <li className={isCardOpened ? "question-opened" : ""} onClick={openCard}>
-      <div className={`closed-card ${isCardOpened ? "hidden" : ""}`}>
+  const openedCard = (
+    <div className="opened-card">
+      {cardFace === "Front" ? frontCard : backCard}
+    </div>
+  );
+
+  const closedCard = (
+    <>
+      <div className="closed-card" onClick={openCard}>
         <span>{`Pergunta ${questionNumber}`}</span>
         <IconContext.Provider value={{ color: "#333333", className: "icons" }}>
           <GrPlay />
         </IconContext.Provider>
       </div>
+    </>
+  );
 
-      <div className={`opened-card ${isCardOpened ? "" : "hidden"}`}>
-        {isFrontCard ? frontCard : backCard}
-      </div>
+  return (
+    <li className={isCardOpened ? "question-opened" : ""}>
+      {isCardOpened ? openedCard : closedCard}
     </li>
   );
 }
