@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
 
 export default function GameScreen() {
+  function comparador() {
+    return Math.random() - 0.5;
+  }
   const deck = [
     {
       questionTitle: " O que é JSX?",
@@ -33,9 +37,16 @@ export default function GameScreen() {
       questionAnswer: "Passar diferentes informações para componentes",
     },
   ];
+  const randomizedDeck = deck.sort(comparador);
+  const answersArray = [];
 
-  let answeredQuestions = 0;
+  let answeredQuestions = answersArray.length;
   const totalQuestions = deck.length;
+
+
+
+
+
 
   return (
     <>
@@ -45,7 +56,7 @@ export default function GameScreen() {
       </header>
       <section className="question-container">
         <ul>
-          {deck.map((post, index) => (
+          {randomizedDeck.map((post, index) => (
             <QuestionCard
               key={index}
               questionNumber={index + 1}
