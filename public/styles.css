@@ -88,7 +88,7 @@ header h2 {
 
 .question-container {
   padding: 0 10%;
-  margin-bottom: 70px;
+  margin-bottom: 131px;
 }
 
 .question-container ul {
@@ -213,6 +213,7 @@ footer {
   width: 100%;
   min-height: 70px;
   background-color: #ffffff;
+  padding: 10px 0;
 }
 
 footer .answers-icons {
@@ -230,7 +231,6 @@ footer .results-title {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 16px;
 }
 
 footer .results-title img {
@@ -248,7 +248,7 @@ footer .results-message p {
   text-align: center;
   word-wrap: break-word;
   font-size: 18px;
-  margin: 14px;
+  margin: 10px;
 }
 
 .icons {

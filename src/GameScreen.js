@@ -2,56 +2,8 @@ import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
 
-export default function GameScreen() {
-  function comparador() {
-    return Math.random() - 0.5;
-  }
-  const deck = [
-    {
-      questionTitle: " O que é JSX?",
-      questionAnswer: "Uma extensão de linguagem do JavaScript",
-    },
-    {
-      questionTitle: "O React é __",
-      questionAnswer: "Uma biblioteca JavaScript para construção de interfaces",
-    },
-    {
-      questionTitle: "Componentes devem iniciar com __ ",
-      questionAnswer: "Letra maiúscula",
-    },
-    {
-      questionTitle: "Podemos colocar __ dentro do JSX",
-      questionAnswer: "Expressões",
-    },
-    {
-      questionTitle: "Usamos o npm para __ ",
-      questionAnswer: "Gerenciar os pacotes necessários e suas dependências",
-    },
-    {
-      questionTitle: " O ReactDOM nos ajuda __",
-      questionAnswer:
-        "Interagindo com a DOM para colocar componentes React na mesma",
-    },
-    {
-      questionTitle: "Usamos props para __ ",
-      questionAnswer: "Passar diferentes informações para componentes",
-    },
-  ];
-  // const deck = [
-  //   {
-  //     questionTitle: "Qual é a derivada de uma constante?",
-  //     questionAnswer: "Zero",
-  //   },
-  //   {
-  //     questionTitle: "Limite de x tendendo a 5?",
-  //     questionAnswer: "Cinco",
-  //   },
-  //   {
-  //     questionTitle: "Integral de uma constante?",
-  //     questionAnswer: "Constante*x",
-  //   }
-  // ];
-  const randomizedDeck = deck.sort(comparador);
+export default function GameScreen({deck}) {
+  
   const totalQuestions = deck.length;
 
   const [answersArray, setAnswersArray] = useState([]);
@@ -68,7 +20,7 @@ export default function GameScreen() {
       </header>
       <section className="question-container">
         <ul>
-          {randomizedDeck.map((post, index) => (
+          {deck.map((post, index) => (
             <QuestionCard
               key={index}
               questionNumber={index + 1}
