@@ -11,7 +11,6 @@ export default function QuestionCard({
   answersArray,
   setAnswersArray,
   setAnsweredQuestions,
-  isEverythingCorrect,
   setIsEverythingCorrect
 }) {
   const [isCardOpened, setIsCardOpened] = useState(false);

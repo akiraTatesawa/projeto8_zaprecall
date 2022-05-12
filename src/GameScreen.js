@@ -1,9 +1,9 @@
 import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
+import IconAnswer from "./IconAnswer";
 
-export default function GameScreen({deck}) {
-  
+export default function GameScreen({ deck }) {
   const totalQuestions = deck.length;
 
   const [answersArray, setAnswersArray] = useState([]);
@@ -38,9 +38,15 @@ export default function GameScreen({deck}) {
       <Footer
         answeredQuestions={answeredQuestions}
         totalQuestions={totalQuestions}
-        answersArray={answersArray}
         isEverythingCorrect={isEverythingCorrect}
-      />
+      >
+        <span>{`${answeredQuestions}/${totalQuestions} CONCLUÍDOS`}</span>
+        <div>
+          {answersArray.map((item, index) => (
+            <IconAnswer typeOfAnswer={item.answer} key={index} />
+          ))}
+        </div>
+      </Footer>
     </>
   );
 }

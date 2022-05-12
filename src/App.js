@@ -35,7 +35,7 @@ export default function App() {
       questionAnswer: "Passar diferentes informações para componentes",
     },
   ];
-  const [deck, setDeck] = useState(questionsAnswersArray)
+  const [deck, setDeck] = useState(questionsAnswersArray);
 
   function comparador() {
     return Math.random() - 0.5;
