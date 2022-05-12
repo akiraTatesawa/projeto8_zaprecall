@@ -188,6 +188,21 @@ header h2 {
   background-color: #2fbe34;
 }
 
+.closed-card .correct {
+  color: #2fbe34;
+  text-decoration: line-through;
+}
+
+.closed-card .wrong {
+  color: #ff3030;
+  text-decoration: line-through;
+}
+
+.closed-card .partially-correct {
+  color: #ff922e;
+  text-decoration: line-through;
+}
+
 footer {
   position: fixed;
   bottom: 0;

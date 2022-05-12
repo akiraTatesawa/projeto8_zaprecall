@@ -1,30 +1,22 @@
-import { IconContext } from "react-icons";
-import {
-  BsFillXCircleFill,
-  BsQuestionCircleFill,
-  BsCheckCircleFill,
-} from "react-icons/bs";
+import IconAnswer from "./IconAnswer";
 
-export default function Footer({ answeredQuestions, totalQuestions }) {
+export default function Footer({
+  answeredQuestions,
+  totalQuestions,
+  answersArray,
+}) {
+
+  if (answeredQuestions === totalQuestions) {
+    setTimeout(() => alert('acabou'), 1000)
+  }
+  
   return (
     <footer>
       <span>{`${answeredQuestions}/${totalQuestions} CONCLUÍDOS`}</span>
       <div>
-        <IconContext.Provider
-          value={{ color: "#2fbe34", className: "answers-icons icons " }}
-        >
-          <BsCheckCircleFill />
-        </IconContext.Provider>
-        <IconContext.Provider
-          value={{ color: "#ff3030", className: "answers-icons icons " }}
-        >
-          <BsFillXCircleFill />
-        </IconContext.Provider>
-        <IconContext.Provider
-          value={{ color: "#ff922e", className: "answers-icons icons " }}
-        >
-          <BsQuestionCircleFill />
-        </IconContext.Provider>
+        {answersArray.map((item, index) => (
+          <IconAnswer typeOfAnswer={item.answer} key={index} />
+        ))}
       </div>
     </footer>
   );

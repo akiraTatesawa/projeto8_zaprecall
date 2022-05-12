@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
 
@@ -38,15 +38,12 @@ export default function GameScreen() {
     },
   ];
   const randomizedDeck = deck.sort(comparador);
-  const answersArray = [];
-
-  let answeredQuestions = answersArray.length;
   const totalQuestions = deck.length;
 
-
-
-
-
+  const [answersArray, setAnswersArray] = useState([]);
+  const [answeredQuestions, setAnsweredQuestions] = useState(
+    answersArray.length
+  );
 
   return (
     <>
@@ -62,6 +59,9 @@ export default function GameScreen() {
               questionNumber={index + 1}
               questionTitle={post.questionTitle}
               questionAnswer={post.questionAnswer}
+              answersArray={answersArray}
+              setAnswersArray={setAnswersArray}
+              setAnsweredQuestions={setAnsweredQuestions}
             />
           ))}
         </ul>
@@ -69,6 +69,7 @@ export default function GameScreen() {
       <Footer
         answeredQuestions={answeredQuestions}
         totalQuestions={totalQuestions}
+        answersArray={answersArray}
       />
     </>
   );
