@@ -37,6 +37,20 @@ export default function GameScreen() {
       questionAnswer: "Passar diferentes informações para componentes",
     },
   ];
+  // const deck = [
+  //   {
+  //     questionTitle: "Qual é a derivada de uma constante?",
+  //     questionAnswer: "Zero",
+  //   },
+  //   {
+  //     questionTitle: "Limite de x tendendo a 5?",
+  //     questionAnswer: "Cinco",
+  //   },
+  //   {
+  //     questionTitle: "Integral de uma constante?",
+  //     questionAnswer: "Constante*x",
+  //   }
+  // ];
   const randomizedDeck = deck.sort(comparador);
   const totalQuestions = deck.length;
 

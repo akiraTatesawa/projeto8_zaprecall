@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useRef } from 'react';
 import { IconContext } from "react-icons";
 import { GrPlay } from "react-icons/gr";
 import { TiArrowLoop } from "react-icons/ti";
@@ -14,12 +15,11 @@ export default function QuestionCard({
 }) {
   const [isCardOpened, setIsCardOpened] = useState(false);
   const [cardFace, setCardFace] = useState("Front");
-  const [isCardAnswered, setIsCardAnswered] = useState(false);
   const [closedCard, setClosedCard] = useState(
     <>
       <div
         className="closed-card"
-        onClick={!isCardOpened && !isCardAnswered ? openCard : undefined}
+        onClick={openCard}
       >
         <span>{`Pergunta ${questionNumber}`}</span>
         <IconContext.Provider value={{ color: "#333333", className: "icons" }}>
@@ -30,6 +30,7 @@ export default function QuestionCard({
   );
 
   function openCard() {
+    
     setIsCardOpened(true);
   }
 
@@ -53,7 +54,6 @@ export default function QuestionCard({
 
   function chooseAnswer(answer) {
     setIsCardOpened(false);
-    setIsCardAnswered(true);
     registerNewAnswer(answer, answersArray);
     changeClosedCardStyle(answer);
   }

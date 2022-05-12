@@ -210,14 +210,45 @@ footer {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 70px;
   width: 100%;
+  min-height: 70px;
   background-color: #ffffff;
 }
 
-.answers-icons {
+footer .answers-icons {
   margin-top: 5px;
   margin-right: 5px;
+}
+
+footer .results-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+footer .results-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+footer .results-title img {
+  width: 23px;
+  height: 23px;
+  margin-right: 15px;
+}
+
+footer .results-title h3 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+footer .results-message p {
+  text-align: center;
+  word-wrap: break-word;
+  font-size: 18px;
+  margin: 14px;
 }
 
 .icons {
