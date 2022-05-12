@@ -58,6 +58,7 @@ export default function GameScreen() {
   const [answeredQuestions, setAnsweredQuestions] = useState(
     answersArray.length
   );
+  const [isEverythingCorrect, setIsEverythingCorrect] = useState(true);
 
   return (
     <>
@@ -76,6 +77,8 @@ export default function GameScreen() {
               answersArray={answersArray}
               setAnswersArray={setAnswersArray}
               setAnsweredQuestions={setAnsweredQuestions}
+              isEverythingCorrect={isEverythingCorrect}
+              setIsEverythingCorrect={setIsEverythingCorrect}
             />
           ))}
         </ul>
@@ -84,6 +87,7 @@ export default function GameScreen() {
         answeredQuestions={answeredQuestions}
         totalQuestions={totalQuestions}
         answersArray={answersArray}
+        isEverythingCorrect={isEverythingCorrect}
       />
     </>
   );
