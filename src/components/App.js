@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Homepage from "./Homepage";
 import GameScreen from "./GameScreen";
+import '../assets/styles/reset.css';
+import '../assets/styles/styles.css';
 
 export default function App() {
   const [screen, setScreen] = useState("Homepage");

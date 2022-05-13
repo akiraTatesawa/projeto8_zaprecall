@@ -1,4 +1,5 @@
 import { useState } from "react";
+import logo from "../assets/img/logo1.png";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
 import IconAnswer from "./IconAnswer";
@@ -16,7 +17,7 @@ export default function GameScreen({ deck }) {
   return (
     <>
       <header>
-        <img src="./assets/img/logo1.png" alt="logo" />
+        <img src={logo} alt="logo" />
         <h2>ZapRecall</h2>
       </header>
 
