@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import logo from "../assets/img/logo1.png";
 import QuestionCard from "./QuestionCard";
 import Footer from "./Footer";
@@ -13,6 +13,17 @@ export default function GameScreen({ deck, restartGame }) {
     answersArray.length
   );
   const [isEverythingCorrect, setIsEverythingCorrect] = useState(true);
+  const scrollRef = useRef();
+
+  function scrollToBottom() {
+    if (answeredQuestions === totalQuestions) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  useEffect(() => {
+    scrollToBottom();
+  });
 
   return (
     <>
@@ -36,7 +47,13 @@ export default function GameScreen({ deck, restartGame }) {
           ))}
         </ul>
       </section>
-      <div className={answeredQuestions === totalQuestions ? "spacing-179" : "spacing-70"}></div>
+
+      <div
+        className={
+          answeredQuestions === totalQuestions ? "spacing-179" : "spacing-70"
+        }
+        ref={scrollRef}
+      ></div>
       <Footer>
         {answeredQuestions === totalQuestions ? (
           <ResultsMessage isEverythingCorrect={isEverythingCorrect} />
@@ -47,7 +64,9 @@ export default function GameScreen({ deck, restartGame }) {
             <IconAnswer typeOfAnswer={item.answer} key={index} />
           ))}
         </div>
-        {answeredQuestions === totalQuestions ? <button onClick={restartGame}>REINICIAR RECALL</button> : undefined}
+        {answeredQuestions === totalQuestions ? (
+          <button onClick={restartGame}>REINICIAR RECALL</button>
+        ) : undefined}
       </Footer>
     </>
   );
