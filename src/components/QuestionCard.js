@@ -10,7 +10,7 @@ export default function QuestionCard({
   answersArray,
   setAnswersArray,
   setAnsweredQuestions,
-  setIsEverythingCorrect
+  setIsEverythingCorrect,
 }) {
   const [isCardOpened, setIsCardOpened] = useState(false);
   const [cardFace, setCardFace] = useState("Front");
@@ -40,7 +40,7 @@ export default function QuestionCard({
     const newArray = [...answersArray, newAnswer];
     setAnswersArray(newArray);
     setAnsweredQuestions(newArray.length);
-    checkWrongAnswer(answer)
+    checkWrongAnswer(answer);
   }
 
   function changeClosedCardStyle(answer) {

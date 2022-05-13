@@ -16,13 +16,13 @@ export default function GameScreen({ deck, restartGame }) {
   const scrollRef = useRef();
 
   function scrollToBottom() {
-    if (answeredQuestions === totalQuestions) {
-      scrollRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
   }
 
   useEffect(() => {
-    scrollToBottom();
+    if (answeredQuestions === totalQuestions) {
+      scrollToBottom();
+    }
   });
 
   return (
