@@ -5,7 +5,7 @@ import Footer from "./Footer";
 import IconAnswer from "./IconAnswer";
 import ResultsMessage from "./ResultsMessage";
 
-export default function GameScreen({ deck }) {
+export default function GameScreen({ deck, restartGame }) {
   const totalQuestions = deck.length;
 
   const [answersArray, setAnswersArray] = useState([]);
@@ -36,7 +36,7 @@ export default function GameScreen({ deck }) {
           ))}
         </ul>
       </section>
-
+      <div className={answeredQuestions === totalQuestions ? "spacing-179" : "spacing-70"}></div>
       <Footer>
         {answeredQuestions === totalQuestions ? (
           <ResultsMessage isEverythingCorrect={isEverythingCorrect} />
@@ -47,6 +47,7 @@ export default function GameScreen({ deck }) {
             <IconAnswer typeOfAnswer={item.answer} key={index} />
           ))}
         </div>
+        {answeredQuestions === totalQuestions ? <button onClick={restartGame}>REINICIAR RECALL</button> : undefined}
       </Footer>
     </>
   );

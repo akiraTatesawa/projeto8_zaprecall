@@ -88,7 +88,7 @@ header h2 {
 
 .question-container {
   padding: 0 10%;
-  margin-bottom: 131px;
+  /* margin-bottom: 131px; */
 }
 
 .question-container ul {
@@ -251,11 +251,33 @@ footer .results-message p {
   margin: 10px;
 }
 
+footer button {
+  width: 167px;
+  height: 32px;
+  background: #fb6b6b;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "Recursive", sans-serif;
+}
+
+/* AUXILIAR CLASSES */
 .icons {
   font-size: 22px;
 }
 
-/* AUXILIAR CLASSES */
 .hidden {
   display: none;
+}
+
+.spacing-70 {
+  width: 100%;
+  height: 70px;
+}
+
+.spacing-179 {
+  width: 100%;
+  height: 179px;
 }

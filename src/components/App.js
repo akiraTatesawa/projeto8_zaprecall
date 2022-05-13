@@ -48,12 +48,16 @@ export default function App() {
     setDeck(deck.sort(comparador));
   }
 
+  function restartGame() {
+    setScreen("Homepage");
+  }
+
   return (
     <>
       {screen === "Homepage" ? (
         <Homepage startGame={startGame} />
       ) : (
-        <GameScreen deck={deck} />
+        <GameScreen deck={deck} restartGame={restartGame} />
       )}
     </>
   );
