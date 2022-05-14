@@ -1,0 +1,28 @@
+.homepage-content .button-choose-deck {
+  margin: 10px 0;
+}
+
+.background-options {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-color: rgb(0, 0, 0, 0.45);
+  width: 100vh;
+  height: 100vh;
+}
+
+.options {
+  background-color: #feebe1;
+  width: 246px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+  border-radius: 2px;
+  padding: 20px;
+  color: #902c42;
+}
+
+.options ul li {
+  margin: 12px 0;
+  font-size: 22px;
+}

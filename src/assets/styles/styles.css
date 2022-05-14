@@ -59,8 +59,9 @@ h2 {
   color: #d70900;
 }
 
-.homepage-content button:active {
-  background-color: #f6f6f6;
+.homepage-content button:disabled {
+  background-color: #fdddca;
+  color: #d9a993;
 }
 
 /* GAME */
