@@ -103,7 +103,7 @@ export function decksDB() {
         },
         {
           questionTitle: "O que é o ponto de equilíbrio?",
-          questionAnswer: "nº de mols(A) = nº mols de B",
+          questionAnswer: "nº de mols(A) = nº mols de (B)",
         },
         {
           questionTitle: "Nome da substância que identifica o ponto de viragem",

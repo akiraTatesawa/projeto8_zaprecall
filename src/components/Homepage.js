@@ -32,7 +32,7 @@ function Options({ decks, setDeck, setDeckName, setIsOpen }) {
 }
 
 export default function Homepage({ startGame, decks, setDeck }) {
-  const [deckName, setDeckName] = useState("Choose your deck");
+  const [deckName, setDeckName] = useState("Escolha o seu deck");
   const [isOpen, setIsOpen] = useState(false);
 
   const openOptions = () => {
@@ -58,7 +58,7 @@ export default function Homepage({ startGame, decks, setDeck }) {
           {deckName}
         </button>
         <button
-          disabled={deckName === "Choose your deck" ? true : false}
+          disabled={deckName === "Escolha o seu deck" ? true : false}
           onClick={startGame}
         >
           Iniciar Recall!

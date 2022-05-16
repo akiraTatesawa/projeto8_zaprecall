@@ -12,11 +12,11 @@ export default function QuestionCard({
   setAnsweredQuestions,
   setIsEverythingCorrect,
 }) {
-  const [isCardOpened, setIsCardOpened] = useState(false);
+  const [isCardOpen, setIsCardOpen] = useState(false);
   const [cardFace, setCardFace] = useState("Front");
   const [closedCard, setClosedCard] = useState(
     <>
-      <div className="closed-card" onClick={openCard}>
+      <div className="closed-card" onClick={opensCard}>
         <span>{`Pergunta ${questionNumber}`}</span>
         <IconContext.Provider value={{ color: "#333333", className: "icons" }}>
           <GrPlay />
@@ -25,8 +25,8 @@ export default function QuestionCard({
     </>
   );
 
-  function openCard() {
-    setIsCardOpened(true);
+  function opensCard() {
+    setIsCardOpen(true);
   }
 
   function checkWrongAnswer(answer) {
@@ -55,7 +55,7 @@ export default function QuestionCard({
   }
 
   function chooseAnswer(answer) {
-    setIsCardOpened(false);
+    setIsCardOpen(false);
     registerNewAnswer(answer, answersArray);
     changeClosedCardStyle(answer);
   }
@@ -100,15 +100,15 @@ export default function QuestionCard({
     </div>
   );
 
-  const openedCard = (
+  const openCard = (
     <div className="opened-card">
       {cardFace === "Front" ? frontCard : backCard}
     </div>
   );
 
   return (
-    <li className={isCardOpened ? "question-opened" : ""}>
-      {isCardOpened ? openedCard : closedCard}
+    <li className={isCardOpen ? "question-opened" : ""}>
+      {isCardOpen ? openCard : closedCard}
     </li>
   );
 }
